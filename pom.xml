@@ -27,6 +27,7 @@
         <module>novel-interface</module>
         <module>novel-model</module>
         <module>novel-service</module>
+        <module>novel-enum</module>
     </modules>
 
     <properties>

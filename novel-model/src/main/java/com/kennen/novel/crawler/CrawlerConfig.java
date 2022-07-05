@@ -9,8 +9,8 @@ import lombok.Data;
 @Data
 @TableName("crawler_config")
 public class CrawlerConfig {
-    @TableId(value = "config_id", type = IdType.INPUT)
-    private String configId;
+    @TableId(value = "config_id", type = IdType.AUTO)
+    private int configId;
     @TableField("config_name")
     private String configName;
     @TableField("config_index_url")

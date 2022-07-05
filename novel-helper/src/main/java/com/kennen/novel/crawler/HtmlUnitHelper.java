@@ -3,6 +3,11 @@ package com.kennen.novel.crawler;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.NicelyResynchronizingAjaxController;
 import com.gargoylesoftware.htmlunit.WebClient;
+import com.gargoylesoftware.htmlunit.html.HtmlPage;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+import java.io.IOException;
 
 public class HtmlUnitHelper {
 
@@ -46,5 +51,20 @@ public class HtmlUnitHelper {
             }
         }
         return webClient;
+    }
+
+
+
+    public static Document getDocumentByUrl(String url, WebClient webClient) {
+        HtmlPage page = null;
+        try {
+            page = webClient.getPage(url);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if(page != null) {
+            return Jsoup.parse(page.asXml());
+        }
+        return null;
     }
 }
